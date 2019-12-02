@@ -1,6 +1,6 @@
 # GitHub Actions for terraforom init to checkout module from private repository
 
-it is a copied version from the following action hashicorp/terraform-github-actions/init@v0.2.0
+it is a copied version from the following action hashicorp/terraform-github-actions/init@v0.6.3
 
 there just a ssh key added so terraform can checkout the module hosted on github.
 

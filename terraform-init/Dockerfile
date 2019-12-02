@@ -1,11 +1,9 @@
-FROM hashicorp/terraform:0.12.8
+FROM alpine:3 
 
-LABEL "com.github.actions.name"="terraform init"
-LABEL "com.github.actions.description"="Run terraform init"
-LABEL "com.github.actions.icon"="download"
-LABEL "com.github.actions.color"="purple"
+RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git jq openssh"]
 
-RUN apk --no-cache add jq curl
+RUN ["bin/sh", "-c", "mkdir -p /src"]
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY ["src", "/src/"]
+
+ENTRYPOINT ["/src/main.sh"]
